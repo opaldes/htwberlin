@@ -1,8 +1,7 @@
 package HA2;
 
 public class Fibonacci {
-    public static long getFibonacci() {
-        byte n = 12;
+    public static long getFibonacci(byte n) throws Exception {
         long result = 0;
 
         if (n > 0 && n <= 93) {
@@ -16,13 +15,20 @@ public class Fibonacci {
             }
 
         } else {
-            throw new Error("n is too big or less than zero - cannot calculate Fibonacci");
+            throw new Exception("n is too big or less than zero - cannot calculate Fibonacci");
         }
 
         return result;
     }
 
     public static void main(String[] args) {
-        System.out.println(getFibonacci());
+        for (int n = -5; n <= 10; n++){
+            try {
+                System.out.println(getFibonacci((byte) n));
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
     }
 }
