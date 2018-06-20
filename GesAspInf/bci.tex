@@ -12,6 +12,8 @@
 \usepackage{float}
 \usepackage{url}
 \usepackage{paralist}
+\usepackage[toc,page]{appendix}
+\usepackage{caption}
 
 \makeatletter
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
@@ -23,6 +25,8 @@
 \setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
 
 
+\renewcommand{\appendixtocname}{Anlagenverzeichnis}
+\renewcommand{\appendixpagename}{Anlagenverzeichnis}
 \setlength\bibitemsep{1.5\itemsep}
 \urlstyle{same}
 \addbibresource{src/library.bib}
@@ -433,7 +437,7 @@ Systems vorliegende Informationen. Dies ist erforderlich um die komplexen
 Bewegungsabläufe in einer nur teilweise bestimmbaren Umwelt auszuführen. Die
 Robotik stützt sich dabei häufig auf Erkenntnisse aus der Bionik\footnote{
 Die Bionik erforscht wie biologische Phänomene auf technische Systeme
-übertragen werden können. \parencite{feess_definition:_2018}} und man
+übertragen werden können. \parencite[vgl.][]{feess_definition:_2018}} und man
 unterscheidet primär zwischen internen (interozeptiven bzw. propriozeptiven)
 und externen (exterozeptiven) Sensoren. Interozeptive Sensoren messen interne
 Zustände wie Motorgeschwindigkeit, Ladezustand oder Greifkraft und
@@ -903,5 +907,44 @@ noch hinterher.
 
 \pagebreak
 \printbibliography[heading=bibintoc]
+
+\pagebreak
+\captionsetup[figure]{list=no,labelformat=empty}
+\begin{appendices}
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{src/img/kathrin-a1.png}
+    \caption{Anlage 1}
+  \end{figure}
+  \pagebreak
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{src/img/kathrin-a2.png}
+    \caption{Anlage 2}
+  \end{figure}
+  \pagebreak
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{src/img/kathrin-a3.png}
+    \caption{Anlage 3}
+  \end{figure}
+  \pagebreak
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{src/img/kathrin-a4.png}
+    \caption{Anlage 4}
+  \end{figure}
+  \pagebreak
+
+  \begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{src/img/kathrin-a5.png}
+    \caption{Anlage 5}
+  \end{figure}
+
+\end{appendices}
 
 \end{document}
