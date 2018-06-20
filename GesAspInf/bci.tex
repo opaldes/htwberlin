@@ -13,6 +13,16 @@
 \usepackage{url}
 \usepackage{paralist}
 
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+            {-2.5ex\@plus -1ex \@minus -.25ex}%
+            {1.25ex \@plus .25ex}%
+            {\normalfont\normalsize\bfseries}}
+\makeatother
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+\setcounter{tocdepth}{4}    % how many sectioning levels to show in ToC
+
+
 \setlength\bibitemsep{1.5\itemsep}
 \urlstyle{same}
 \addbibresource{src/library.bib}
@@ -50,8 +60,52 @@
 \newpage
 \listoffigures
 \newpage
-\listoftables
+%\listoftables
 \newpage
+\section{Die Funktion der Sensorik eines Brain-Computer-Interfaces}
+
+Gliederung:
+1.0 Aufbau des Brain-Computer-Interface
+2.0 Was sind non-invasive Sensoren
+2.1 Elektroenzephalogramm (EEG)
+2.2 Funktionelle Magnetresonanztomographie (fMRT)
+2.3 Magnetenzephalographie (MEG)
+3.0 Was sind invasive Sensoren
+3.1 Vorgang der Implantierung
+3.2 Funktion
+4.0 Vor und Nachteile
+
+Das Thema dieser Arbeit ist der Aufbau und die Funktion der Sensorik, welche in Brain-Computer-Interfaces, zur Nutzung von Neuroprothesen, angewandt wird. Dazu wird die invasive von den non-invasiven Methoden unterschieden, einerseits in der Präzision, als auch in der praktischen Handhabung. 
+Ziel dieser Arbeit ist es, verschiedene Möglichkeiten der Erfassung von Gehirnaktivitäten zu beschreiben. Dabei werden die Vor- und Nachteile von non-invasiven Methoden aufgezeigt und erläutert warum die invasive Methode, trotz hoher Gesundheitsrisiken wie Infektionen oder Hirnschäden, eine höhere Nutzungsfrequenz im Bezug auf Neuroprothesen hat. 
+Es wird wie folgt vorgegangen. Zunächst wird der grobe Aufbau der Neuroprothesensteuerung erklärt. Daraufhin wird die Funktion der Arten der Sensorik beleuchtet um ein grundlegendes Verständnis für den Vorgang der Aufzeichnung der Hirnaktivität zu erhalten. Abschließend werden Vor- und Nachteile verglichen.
+\subsection{Aufbau des Brain-Computer-Interface} 
+Das Brain-Computer-Interface (deutsch, Gehirn-Computer-Schnittstelle) ist eine spezielle Mensch-Maschine-Schnittstelle die es ermöglicht mittels des Nervensystems im Gehirn, eine Neuroprothese zu steuern. Das geschieht wiefolgt: Zunächst muss der Mensch sich vorstellen die Prothese zu bewegen, um eine Reaktion im Gehirn auszulösen. Diese Reaktion wird nun von einem Sensor, invasiv oder non-invasiv, aufgezeichnet. Diese Signale werden nun per Kabel an die Schnittstelle (über einen Analog-Digital-Konverter) geleitet und analysiert. Mit genügend Übung sind Mensch und Schnittstelle dazu in der Lage, klare Signale zu geben und auszuführen. Sollte die Schnittstelle das Signal verstehen, wird der Befehl zu der Neuroprothese geleitet und ausgeführt.
+\parencite{uebersicht,bciuinvasiv}
+\subsection{Was sind non-invasive Sensoren}
+Unter non-invasive Methoden versteht man ein Messverfahren, dass Gehirnaktivitäten von Außen mittels Elektroden an einen Verstärker leitet um Spannungsschwankungen sichtbar zu machen. Im Falle des Brain-Computer-Interfaces (BCI) werden acht non-invasive Methoden genutzt. Nur die drei häufigst genutzten werden hier erklärt.
+\parencite{methoden}
+\subsubsection{Elektroenzephalogramm (EEG)}
+Das Elektroenzephalogramm (EEG) ist die häufigst genutzte Methode. Es misst die elektrischen Signale ausgehend aus den Nervenzellen des Gehirns. Die Signale werden allerdings nur mit 5-100 Mikrovolt gemessen, was dazu führt dass ein Verstärker vonnöten ist. Um Störungen der Spannungen zu vermeiden wird ein Differenzverstärker mit einer Gleichtaktunterdrückung genutzt. Die gemessenen Signale werden nun digitalisiert und für eine spätere Auswertung gespeichert.
+\parencite{eeg}
+\subsubsection{Funktionelle Magnetresonanztomographie (fMRT)}
+Das zweite Messverfahren ist die funktionelle Magnetresonanztomographie (fMRT). Die funktionelle Magnetresonanztomographie wird meist genutzt um aktive Hirnareale bildlich darzustellen. Anders als bei einem EEG zum Beispiel, werden hier nicht die elektronischen Signale gemessen. Das fMRT misst erhöhte Mengen an sauerstoffhaltigem Blut. Diese Veränderungen des Sauerstoffgehalts entstehen durch den erhöhten Stoffwechsel, der bei der Nutzung der Kortexareale herbeigeführt wird. 
+\parencite{fmrt}
+\subsubsection{Magnetenzephalographie (MEG)}
+Bei der Magnetenzphalographie werden die, ähnlich wie bei dem EEG, die magnetischen Aktivitätn via „SQUIDs“ gemessen. SQUIDs (superconducting quantum interference device) sind Sensoren die für die präzise Messung von sehr schwachen Magnetfeldern genutzt werden. Ein SQUID besteht aus einem supraleitendem Ring der mit normalleitendem Material unterbrochen wird. Die Unterbrechung muss aber so dünn sein, dass die supraleitenden Elektronenpaare noch hindurch kommen. Dieser Kontakt wird als Josephson-Kontakt bezeichnet.
+\parencite{meg}
+\subsection{Was sind invasive Sensoren}
+Als invasive Methode bezeichnet man das Eindringen eines Sensors in den Neokortex. Der Grund dafür ist, dass der Neokortex der motorische Teil des menschlichen Gehirns ist. Somit ist der Sensor in der Lage jeden Bewegungsbefehl direkt aus dem Hirn zu entnehmen.
+\parencite{bciuinvasiv,methoden}
+\subsubsection{Vorgang der Implantierung}
+Das Einpflanzen des Sensors verläuft in 4 Schritten. Zunächst muss die Schädelplatte nahe dem Neokortex geöffnet werden. Nun wird der Chip, der mit mehreren Hundert Sensoren ausgestattet ist, mit einer Art Luftdruckpistole wenige Millimeter in die Großhirnrinde geschossen. Dabei muss besondere Vorsicht geboten werden, da bei Fehlern die Chance auf eine Hirnblutung sehr hoch ist. Nun muss der Sensor mit der Schnittstelle verbunden werden (per Kabel oder Funk). Zu guter Letzt wird die Schädelplatte wieder an den Kopf angebracht. Ein weiteres Problem ist, es kann vorkommen dass die Sensoren nachjustiert werden müssen. Das führt dazu dass die Schädeldecke weitere male geöffnet werden muss, was wiederum die Chance auf eine Infektion im Gehirn erhöht.\cite{bciuinvasiv}
+\subsection{Vor und Nachteile}  
+\subsubsection{fMRT}
+Da die funktionelle Magnetresonanztomographie den Sauerstoffgehalt in aktiven Gehirnarealen misst, ist die fMRT auf den erhöhten Blutfluss angewiesen. Dadurch entsteht folgendes Problem. Die Messung der Reaktion im Gehirn ist zwar präzise was den Ort angeht, hat jedoch eine zeitliche Verzögerung und Ungenauheiten bei kurzen Bewegungen. Das bedeutet, man kann einfache Befehle wie “Arm hoch“ oder “Arm runter“ geben. Man verliert durch die Verzögerung allerdings das Gefühl für das kontrollieren der Prothese.
+\subsubsection{MEG}
+Die Magnetenzophalographie misst, wie das Elektroenzophalogramm, die elektromagnetischen, von den Hirnzellen ausgehenden, Signale. Das hat den Vorteil, dass es nicht wie bei der funktionellen Magnetresonanztomographie zu Verzögerungen kommt.  Durch den Einsatz der “SQUIDs“ kann die Schnittstelle außerdem mit relativ präzisen Befehlen versorgt werden. Der größte Nachteil ist jedoch, dass die Geräte nicht nur statisch sind, sonder auch sehr teuer. Zusätzlich benötigt man für den Dauerbetrieb ca. 400l flüssiges Helium pro Monat zur Kühlung. Das heißt, diese Geräte können für die Forschung der Neuroprothesen genutzt werden, haben jedoch keine Zukunft für die praktische Anwendung.
+\subsubsection{EEG} Das Elektroenzophalogramm ist das meist genutzte non-invasive Messverfahren im Bezug auf Neuroprothesen. Die Gründe dafür sind, dass ein Elektroenzophalogramm vergleichsweise günstig ist. Eine Art Badekappe, einige Sensoren und Kabel sind alles was benötigt wird um eine relativ präzise Messung vorzunehmen. Dies reicht häufig aus, um simple Neuroprothesen einigermaßen gut zu steuern.So verbreitet das Elektroenzophalogramm auch ist, allein dadurch, dass es außerhalb des Gehirns angebracht wird, fehlt es dem EEG an Präzision um genug Informationen für feinmotorische Aktionen zu liefern. Für diese Aktionen wird ein, im Gehirn angebrachter Sensor benötigt. Nur so (beim derzeitigen technischem Stand) ist man dazu in der Lage mit intensivem Training eine Neuroprothese verlässlich zu kontrollieren. Die einzigen Nachteile dabei sind erstens, das Problem, dass der Sensor weiterhin eine Kabelverbindung benötigt. Die Forschung für eine Funkverbindung ist allerdings bereits im Gange. Zweitens, die medizinischen Risiken, die sich auf Hirnblutung während der Implantierung und Infektionen durch wiederholtes Öffnen der Schädeldecke beziehen.
+\subsection{Fazit}
+Zum Schluss lässt sich nurnoch sagen, dass die Sensorik noch zu wünschen lässt. Sowohl in der Genauigkeit der Daten, als auch in Handhabung und gesundheitlichen Risiken. Dies sollte aber nicht allzu problematisch sein. Die Menschheit hat technologisch in den letzten Jahren sehr viel erreicht. Vor 50 Jahren hätte Niemand auch nur erahnen können, dass eine Prothese mit den eigenen Gedanken gesteuert werden kann. Wer weiß schon was in den nächsten 50 jahren technologischem Fortschritt passiert? Aber wir scheinen auf dem besten Weg zu sein, Taube wieder hören zu lassen und Gelähmten die Möglichkeit zu geben wieder zu laufen.\parencite{eeg ,fmrt, meg, bciuinvasiv}
 
 \section{Funktionsweise der Gerätetechnik von Gelenkarmrobotern}
 \label{sec:john}
@@ -290,6 +344,75 @@ umzäunte Sperrbereiche eingerichtet werden können, bestünde im Fall von
 Fehlfunktionen bei einem mobilen Roboterarm die Gefahr Lebewesen oder Objekte
 im unmittelbaren Umfeld oder den Anwender selbst zu verletzen.
 
+\section{Anwendungsmöglichkeiten für BCIs in nicht-medizinischen Bereichen}
+\subsection{Einleitung}
+BCIs werden mit großem Fokus auf die Medizin/Neurowissenschaften entwickelt
+\footnote{Aussage wurde allein über die Anzahl an Artikel, denen ein starker Fokus im med./neur. Bereich anhand 
+des Titels anzusehen ist, die die BBCI unter den Publikationen auflistet. Alle Publikationen die für diese Arbeit 
+verwendet wurden sind unter http://bbci.de/publications.html aufgelistet.}. Bereits heute sind rudimentäre Prothesen
+mit intrusiven Methoden möglich sowie das Auslesen/Übertragen von Gehirnwellen mit dem weniger intrusiven Berlin BCI.
+Dabei werden mit verschiedenste Methoden unterschiedliche Gehirnaktivitäten ausgelesen und für die 
+Weiterverarbeitung am Computern vorbereitet.\\ Der Fokus dieser Arbeit liegt auf einem Überblick der Anwendungsmöglichkeit
+außerhalb der Medizin und Neurowissenschaft. Dabei geht es in dieser Arbeit um die folgenden zwei Gebiete,
+Datengewinnung, Peripherie. Diese Arbeit soll nur eine Übersicht der derzeitigen Arbeiten an den genannten
+Gebieten geben, deshalb wird kein moralisches Urteil über die vorgestellten Methoden/Einsatzmöglichkeiten
+ein Teil dieser Arbeit sein. Zu jedem Bereich wird im jeweiligen Bereiche vorstellbare,
+jedoch nicht im Umfang der Recherche gefundenen, Anwedungen angegeben. 
+\subsection{Datengewinnung}
+Unter allgemeinen Datenverwendung ist im Verlauf der Arbeit alle Anwendungsgebiete gesammelt,
+ bei der die Daten des BCIs ausgewertet weden um Entscheidungen zu fällen oder einen Datensatz zu erstellen.  
+\subsubsection{Entscheidungshilfe}
+In dem Artikel ''Implicit relevance feedback from electroencephalography and eye tracking in image search''\parencite{tracking} 
+der sich mit der Realisation von gedankenunterstützem Navigieren über Suchergebnisse von Suchmachinen
+für Bilder beschäftigt, spricht man von der Möglichkeit mithilfe des Gehirns die subjektive Relevanz der einzelnen Ergebnisse 
+herauszufiltern. Ein weiterer Teil der Arbeit ist die Untersuchung ob Eye Tracking im verbund mit dem BCI ein besseres Ergebniss erzielt als jeweils für sich.
+Hierbei wird mithilfe eines BCIs bei einer Suche nach einem Begriff, der sich in zwei Kategorien einteilen lässt, 
+die Ergebnisse der gesuchten Kategorie anhand der Signale des BCIs klar von anderen Ergebnissen abgehoben. Die Präzesion des BCIs 
+alleine lag bei  $76.9\% \pm 8.7\% $ des EyeTracker bei $81.0\% \pm 6.7\% $ und kombiniert bei $85.9\% \pm 5.8\% $\parencite[3.1.]{tracking}.
+Damit wurde gezeigt das die BCI Technologie wirksamerweise komplementär mit einem Eyetracker eingesetzt werden kann um Entscheidungen zu treffen.   
+\paragraph{Neuromarketing}
+Die Idee hinter Neuromarketing ist das durch zbs. BCIs von Konsumenten noch weitere Informationen 
+sammeln lässt. Neuromarketing lässt sich deshalb definieren als mit Neurologischen Messmethoden auf 
+die Produktakzeptanz des Endverbrauchers zu schließen, jedoch ist die Wissenschaft sich noch uneinig was 
+man alles unter den Begriff des Neuromarketing zusammenfasst\parencite{marketing,beyond}. Da die Verwendung 
+von BCIs jedoch die Kosten von Marketingmaßnahmen erhöhen und ein Beweiß der Effektivität solcher 
+Technologien im Marketing nicht bewiesen sind, wird davon ausgegangen das diese nicht in näherer Zukunft 
+angewandt werden, da noch keine genauere Forschung über das Thema zur Verfügung stand.
+\paragraph{Qualitätssicherung}
+Die BCIs erlauben uns in der Qualitätssicherung Eigenschaften zu testen ohne einen Probanden zu befragen,
+ so wird von Arndt behauptet das die Daten des BCIs unterschiedlich bei dem selben Bild in unterschiedlicher Qualität ist\parencite{video}. 
+ Diese Eigenschaft ließe sich dann auf andere Arten der Qualitätsicherung Anwenden um neue Kriterien der Qualitätssicherung zu erstellen, 
+ und neben bereits etablierten Methoden komplementär zum Einsatz kommen.
+\subsubsection{Benutzerstatus}
+Wenn man von User State spricht so spricht man von dem derzeitigen Status des grade untersuchtem Probanden. Anhand
+von User States soll man in Zukunft in vielen Bereichen den derzeitige Status mithilfe on BCIs messen können um anhand der 
+Werte bestimmte Entscheidungen zu treffen. Als Beispiel wird die "Schläfrigkeit" eines Autofahrers genannt bei dem die BCI messwerte 
+komplementär mit einem Pulsmesser benutzt werden könnte. Somit kann davon ausgegangen werden das in vielen Gebieten wo man durch Messen 
+von Körperaktivität auf den Status des Probanden schließen will, ein BCI sich neben den Standard Messmethoden einsetzten lässt. Nennenswert wäre ein 
+Lügendetektor, oder aber auch eine neue Form des Intilligenztestes der auf die Aktivität des Hirns wärend der Beantwortung eingeht anstatt nur die 
+Ergebnisse auszuwerten.\parencite[vgl 3.2]{beyond}
+\paragraph{Pädagogisch Anwendungen}
+Die Lehrnerfolge bestimmter Lehrmethoden könnten bereits während des Lehrens gemessen werden und auch welche 
+Regionen des Gehirns bei einer Methode besonders gefördert wird. Dabei wird in \parencite{beyond} 
+sowohl vom ganzen Bereich akzeptierter Lerhmethoden als auch von individuelle Lehrziele gesprochen.
+Im schulischem Bereich könnten auch in Klausursituationen gemessen werden ob gelerntes Angewandt oder 
+auswendig Niedergeschrieben wird, um auf die Effektivität des Unterrichtes und die Vorbereitung der Schüler zu schließen.
+\paragraph{Arbeitswelt}
+Die Einsatzmöglichkeit der BCIs in der Arbeitswelt wurde bereits behandelt\parencite{beyond,workload}. Hier kann mentale Belastung präzisiert und die Arbeitslast ggf. verringert werden.
+In einem durchgeführtem Experiment\parencite[24.3]{workload} wurden Autofahrende zwei weiteren Aufgaben gegeben 
+wobei anhand von Daten auf die mentale Belastung des Subjekts zu schließen. Dabei ist die zweite Aufgabe leichter als die 
+dritte und alle Aufgaben sollen simultan bearbeitet werden. Falls eine erhöhte mentale Belastung durch die BCIs festgestellt wird, 
+pausiert die zweite Aufgabe um mehr Ressourcen für die dritte Aufgabe freizugeben und somit die gesammte Leistung zu steigern.
+\paragraph{Unterhaltung}
+ Die Idee von Biofeedback wurden bereits in Projekten realisiert\footnote{http://www.flyingmollusk.com/nevermind/}, jedoch nur
+  mit Pulsmessern um den Status des Benutzers auszulesen. Hier ließen sich BCIs hinzufügen um ein präziseres Benutzerbild zu zeichnen. 
+\subsection{Peripherie}
+Neben der Steuerung von Prothesen im medizinischen Bereich lassen sich BCIs auch in anderen Bereichen dafür verwenden. In dem Artikel `Brain-Computer Interfaces, Virtual Reality, and Videogames`\parencite{vidya}
+ wird ein großer Teil der Anwendungsgebiet mit BCIs für Videospiele und den sog. `serious games` abgebildet. BCIs können in virtuellen Einrichtungen neben bekannten Steuerungsmöglichkeiten benutzt
+  werden um bsps einem Rollstuhlfahrer in einem virtuellen Trainingsgelände die Steuerung des Rollstuhs mithilfe eines BCIs zu erlernen ohne für Personen zur Gefahr zu werden\parencite[S.3 ff.]{vidya}.\\
+Es gibt auch erste BCI Spiele die den Verbrauchermarkt erreicht haben, die es dem Verbraucher ermöglicht kleinere Geräte mithilfe der BCIs zu Steuern, nennenswert ist ein Brettspiel
+ welches mithilfe von Sensorik spielen lässt\footnote{Mattel Mindflex Duel} und ein gedankengesteuerter Helikopter\footnote{Puzzlebox Orbit}.
+ 
 \section{Ethische Aspekte und Einstellung zu Human Enhancement und Gehirn-Computer-Schnittstellen}
 \label{sec:kathrin}
 \subsection{Einleitung}
